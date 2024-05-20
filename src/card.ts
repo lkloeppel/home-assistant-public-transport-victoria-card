@@ -16,7 +16,6 @@ class PublicTransportVictoriaCard extends LitElement {
     this.config = {
       show_status: true,
       show_last_updated: true,
-      show_offset: true,
       show_next_services: true,
       ...config
     };
