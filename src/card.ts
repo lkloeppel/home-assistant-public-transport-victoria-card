@@ -346,4 +346,4 @@ class PublicTransportVictoriaCard extends LitElement {
   }
 }
 
-customElements.define('public-transport-victoria-card-test', PublicTransportVictoriaCard);
+customElements.define('public-transport-victoria-card', PublicTransportVictoriaCard);
