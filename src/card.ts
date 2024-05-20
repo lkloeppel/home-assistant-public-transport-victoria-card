@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { HomeAssistant, hasConfigOrEntityChanged } from 'custom-card-helpers';
 import { CSSResultGroup, LitElement, PropertyValues, TemplateResult, css, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -21,8 +20,6 @@ class PublicTransportVictoriaCard extends LitElement {
     if (!this.config) {
       return false;
     }
-
-    console.log('shouldUpdate:', hasConfigOrEntityChanged(this, changedProps, false));
 
     return hasConfigOrEntityChanged(this, changedProps, false);
   }
@@ -65,8 +62,6 @@ class PublicTransportVictoriaCard extends LitElement {
     const diffInMinutes = Math.floor(
       (estimatedTime.valueOf() - scheduledTime.valueOf()) / 1000 / 60
     );
-
-    console.log(diffInMinutes);
 
     return diffInMinutes;
   }
@@ -111,8 +106,6 @@ class PublicTransportVictoriaCard extends LitElement {
     const entityName = entity.entity_id;
 
     const nextServices = this.getNextServices(entityName);
-
-    console.log(nextServices);
 
     if (!nextServices) {
       return;
@@ -212,8 +205,6 @@ class PublicTransportVictoriaCard extends LitElement {
   }
 
   private formatFriendlyName(friendyName: string | undefined): string | null {
-    console.log(friendyName);
-
     if (friendyName) {
       return friendyName.slice(0, -1).trim();
     }
