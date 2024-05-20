@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { HomeAssistant, hasConfigOrEntityChanged } from 'custom-card-helpers';
 import { CSSResultGroup, LitElement, PropertyValues, TemplateResult, css, html } from 'lit';
 import { property, state } from 'lit/decorators.js';
@@ -21,8 +20,6 @@ class PublicTransportVictoriaCard extends LitElement {
     if (!this.config) {
       return false;
     }
-
-    console.log('shouldUpdate:', hasConfigOrEntityChanged(this, changedProps, false));
 
     return hasConfigOrEntityChanged(this, changedProps, false);
   }
@@ -65,8 +62,6 @@ class PublicTransportVictoriaCard extends LitElement {
     const diffInMinutes = Math.floor(
       (estimatedTime.valueOf() - scheduledTime.valueOf()) / 1000 / 60
     );
-
-    console.log(diffInMinutes);
 
     return diffInMinutes;
   }
@@ -112,8 +107,6 @@ class PublicTransportVictoriaCard extends LitElement {
 
     const nextServices = this.getNextServices(entityName);
 
-    console.log(nextServices);
-
     if (!nextServices) {
       return;
     }
@@ -134,8 +127,7 @@ class PublicTransportVictoriaCard extends LitElement {
             </div>
             ${status === 'delayed' && delay
               ? html`<div class="service-delayed">
-                  <ha-icon icon="mdi:clock-alert-outline"></ha-icon>
-                  <div class="delay-label">+ ${delay}</div>
+                  <div class="delay-label">+${delay}</div>
                 </div>`
               : ''}
             <div class="next-service-status service-status-${status}">${status}</div>
@@ -158,9 +150,20 @@ class PublicTransportVictoriaCard extends LitElement {
     }
 
     if (attributes?.estimated_departure_utc) {
+      const status = this.getStatus(entity);
+
+      const delay = this.getDelayedTimeInMinutes(entity);
+
       arrival = html` <div class="train-times__col">
         <div class="train-times__title">Actual</div>
-        <div class="train-times__time">${this.formatTime(attributes?.estimated_departure_utc)}</div>
+        <div class="train-times__time">
+          ${this.formatTime(attributes?.estimated_departure_utc)}
+          ${status === 'delayed' && delay
+            ? html`<div class="train-time-delayed">
+                <div class="delay-label">+${delay}</div>
+              </div>`
+            : ''}
+        </div>
       </div>`;
     }
 
@@ -177,11 +180,11 @@ class PublicTransportVictoriaCard extends LitElement {
     }
 
     if (status === 'cancelled') {
-      return html`<ha-alert alert-type="error">Next service suspended</ha-alert>`;
+      return html`<ha-alert alert-type="error">Next service is suspended</ha-alert>`;
     }
 
     if (status === 'delayed') {
-      return html`<ha-alert alert-type="warning">Next service delayed</ha-alert>`;
+      return html`<ha-alert alert-type="warning">Next service is delayed</ha-alert>`;
     }
 
     return html`<ha-alert alert-type="success">
@@ -230,7 +233,6 @@ class PublicTransportVictoriaCard extends LitElement {
                   ? this.formatFriendlyName(entity.attributes.friendly_name)
                   : 'Public Transport Victoria'}
             </div>
-            1
           </div>
           ${this._renderServiceStatus(entity)} ${this._renderServiceTimes(entity)}
           ${this._renderNextServices(entity)}
@@ -267,6 +269,9 @@ class PublicTransportVictoriaCard extends LitElement {
       .train-times .train-times__time {
         font-weight: normal;
         font-size: larger;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .train-times .train-times__col {
@@ -306,13 +311,16 @@ class PublicTransportVictoriaCard extends LitElement {
         padding: 10px;
       }
 
-      .service-delayed {
+      .service-delayed,
+      .train-time-delayed {
+        padding-left: 4px;
         color: var(--warning-color);
       }
 
       .next-service-status {
         margin-left: 20px;
         text-transform: capitalize;
+        width: 60px;
       }
 
       .service-status-cancelled {
