@@ -13,7 +13,7 @@ To be used with the Home Assistant integration public_transport_victoria (https:
 <!-- <a href="https://www.buymeacoffee.com/jedimeat" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>-->
 
 
-![alt text](https://raw.githubusercontent.com/lkloeppel/homeassistant_public_transport_victoria/master/screenshot.png) 
+![alt text](https://raw.githubusercontent.com/lkloeppel/home-assistant-public-transport-victoria-card/master/screenshot.png) 
 
 Based on the community driven boilerplate of best practices for Home Assistant Lovelace custom cards (Boilerplate Card by [@iantrich](https://www.github.com/iantrich) https://github.com/custom-cards/boilerplate-card)
 
@@ -34,7 +34,7 @@ The easiest way to install this frontend card is to install via HACS:
 1) Simply go to HACS in your Home Assistant
 2) Select 'Frontend'
 3) In the top right of the screen, select the 3 dots and choose 'Custom repositories'
-4) For the repository field enter 'https://github.com/lkloeppel/homeassistant_public_transport_victoria'
+4) For the repository field enter 'https://github.com/lkloeppel/home-assistant-public-transport-victoria-card'
 5) Choose 'Lovelace' as the category
 6) Add
 7) Restart your HomeAssistant
@@ -79,9 +79,9 @@ If you created the <config>/www directory, restart Home Assistant (Developer Too
 [license-shield]: https://img.shields.io/github/license/custom-cards/boilerplate-card.svg?style=for-the-badge
 [hacs-url]: https://github.com/hacs/integration
 [hacs-badge]: https://img.shields.io/badge/hacs-default-orange.svg?style=flat-square
-[release-badge]: https://img.shields.io/github/v/release/lkloeppel/homeassistant_public_transport_victoria?style=flat-square
-[downloads-badge]: https://img.shields.io/github/downloads/lkloeppel/homeassistant_public_transport_victoria/total?style=flat-square
-[build-badge]: https://img.shields.io/github/workflow/status/crismc/homeassistant_public_transport_victoria/Build?style=flat-square
+[release-badge]: https://img.shields.io/github/v/release/lkloeppel/home-assistant-public-transport-victoria-card?style=flat-square
+[downloads-badge]: https://img.shields.io/github/downloads/lkloeppel/home-assistant-public-transport-victoria-card/total?style=flat-square
+[build-badge]: https://img.shields.io/github/workflow/status/crismc/home-assistant-public-transport-victoria-card/Build?style=flat-square
 
 <!-- References -->
 
@@ -89,4 +89,4 @@ If you created the <config>/www directory, restart Home Assistant (Developer Too
 [home-assitant-theme-docs]: https://www.home-assistant.io/integrations/frontend/#defining-themes
 [hacs]: https://hacs.xyz
 [ui-lovelace-minimalist]: https://ui-lovelace-minimalist.github.io/UI/
-[release-url]: https://github.com/lkloeppel/homeassistant_public_transport_victoria/releases
+[release-url]: https://github.com/lkloeppel/home-assistant-public-transport-victoria-card/releases
