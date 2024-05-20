@@ -1,0 +1,6 @@
+{
+    "name": "Public Transport Victoria Card",
+    "render_readme": true,
+    "filename": "card.js",
+    "country": ["AU"]
+}
