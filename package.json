@@ -17,7 +17,7 @@
   "repository": "git@github.com:lkloeppel/home-assistant-public-transport-victoria-card.git",
   "author": "Lukas Kloeppel <kloeppel.lukas@gmail.com>",
   "dependencies": {
-    "custom-card-helpers": "1.7.2",
+    "custom-card-helpers": "1.9.0",
     "lit": "3.1.3"
   },
   "devDependencies": {
