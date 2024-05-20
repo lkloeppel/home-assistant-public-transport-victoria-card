@@ -25,7 +25,10 @@ Inspiration and initial code from on  [@crismc](https://github.com/crismc/homeas
 | ---------------------| ------- | ------------ | -------------------------------------------------------| ------------------- |
 | type                 | string  | **Required** | `custom:public-transport-victoria-card`                |                     |
 | entity               | string  | **Required** | Home Assistant entity ID.                              |                     |
-| name                 | string  | **Optional** | Card name based on entity                              | `none`              |
+| name                 | string  | **Optional** | Card title                                             | `none`              |
+| show_status          | string  | **Optional** | Show service status (e.g. On Time, Delayed etc)        | `true`              |
+| show_last_updated    | string  | **Optional** | Show when the service last communicated with the AP    | `true`              |
+| show_next_services   | string  | **Optional** | Show the preview of the next services                  | `true`              |
 
 ## Install via HACS
 

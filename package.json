@@ -1,6 +1,6 @@
 {
   "name": "public-transport-victoria-card",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Lovelace Public Transport Victoria Card",
   "keywords": [
     "home-assistant",
@@ -10,13 +10,14 @@
     "lovelace",
     "custom-cards",
     "ptv",
-    "public-transport-victoria"
+    "public-transport-victoria",
+    "australia"
   ],
   "module": "card.js",
   "repository": "git@github.com:lkloeppel/home-assistant-public-transport-victoria-card.git",
   "author": "Lukas Kloeppel <kloeppel.lukas@gmail.com>",
   "dependencies": {
-    "custom-card-helpers": "^1.7.2",
+    "custom-card-helpers": "1.7.2",
     "lit": "3.1.3"
   },
   "devDependencies": {

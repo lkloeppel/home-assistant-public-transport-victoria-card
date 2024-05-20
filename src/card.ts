@@ -13,7 +13,13 @@ class PublicTransportVictoriaCard extends LitElement {
       throw new Error('You need to define an entity');
     }
 
-    this.config = config;
+    this.config = {
+      show_status: true,
+      show_last_updated: true,
+      show_offset: true,
+      show_next_services: true,
+      ...config
+    };
   }
 
   protected shouldUpdate(changedProps: PropertyValues): boolean {
@@ -234,9 +240,12 @@ class PublicTransportVictoriaCard extends LitElement {
                   : 'Public Transport Victoria'}
             </div>
           </div>
-          ${this._renderServiceStatus(entity)} ${this._renderServiceTimes(entity)}
-          ${this._renderNextServices(entity)}
-          ${html`<div class="content-footer">${this._renderLastUpdated()}</div>`}
+          ${this.config.show_status ? this._renderServiceStatus(entity) : ''}
+          ${this._renderServiceTimes(entity)}
+          ${this.config.show_next_services ? this._renderNextServices(entity) : ''}
+          ${this.config.show_last_updated
+            ? html`<div class="content-footer">${this._renderLastUpdated()}</div>`
+            : ''}
         </div>
       </ha-card>
     `;

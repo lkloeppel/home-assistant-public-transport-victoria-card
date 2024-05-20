@@ -4,6 +4,9 @@ export interface PublicTransportVictoriaCardConfig extends LovelaceCardConfig {
   type: string;
   name?: string;
   entity: string;
+  show_status?: boolean;
+  show_last_updated?: boolean;
+  show_next_services?: boolean;
 }
 
 export interface PublicTransportVictoriaAttributes {
